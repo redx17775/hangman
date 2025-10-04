@@ -39,6 +39,8 @@ function word.inTable(t , n)
 return false
 end
 
+return word
+
 -- test cases for my... u not supposed to read this >:(
 
 --[[
