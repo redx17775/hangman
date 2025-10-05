@@ -6,8 +6,17 @@ local tries = 6
 local current = 0
 local word = ""
 
+local isWindows = package.config:sub(1,1) == "\\"
+local function clear()
+	if isWindows then
+		os.execute("cls")
+	else
+		os.execute("clear")
+	end
+end
+
 while word == "" do
-    os.execute("cls")--for linux and mac change this to "clear"
+	clear()
     print(tui["start"])
     print()
     io.write([[
@@ -18,8 +27,8 @@ while word == "" do
     3. animals
 
     enter your chosse number >> ]])
-    local choose = io.read() or ""
-    os.execute("cls")
+	local choose = io.read() or ""
+	clear()
 
     if choose == "1" or choose == "2" or choose == "3" then
         word = wordBank.choose(choose)
@@ -36,7 +45,7 @@ end
 
 while true do
     if current < tries or current == "" then
-        os.execute("cls")
+		clear()
         print(word)
         print(tui["hangman_" .. current])
         print()
@@ -51,14 +60,14 @@ while true do
             current = current + 1
         end
 
-        if not string.find(renderWord.render(word, lettersList),  "_") then
-            os.execute("cls")
+		if not string.find(renderWord.render(word, lettersList),  "_") then
+			clear()
             print(tui["win"]) 
             break
         end
 
-    else
-        os.execute("cls")
+	else
+		clear()
         print(tui["gameOver"])
         break
     end

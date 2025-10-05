@@ -13,9 +13,15 @@ A classic hangman word guessing game implemented in Lua with ASCII art and multi
 ## 🚀 How to Play
 
 1. **Run the game**:
-   ```bash
-   lua main.lua
-   ```
+   - On **Windows**, set UTF-8 first to render ASCII art correctly:
+     ```powershell
+     chcp 65001
+     lua main.lua
+     ```
+   - On **macOS/Linux**:
+     ```bash
+     lua main.lua
+     ```
 
 2. **Choose a category**:
    - Enter `1` for Movies
@@ -85,9 +91,18 @@ The game features:
 1. **Clone or download** this repository
 2. **Ensure Lua is installed** on your system
 3. **Run the game**:
-   ```bash
-   lua main.lua
-   ```
+   - On **Windows**:
+     ```powershell
+     chcp 65001
+     lua main.lua
+     ```
+   - On **macOS/Linux**:
+     ```bash
+     lua main.lua
+     ```
+
+### Platform Notes
+- The game now auto-detects your OS and clears the screen using `cls` on Windows and `clear` on macOS/Linux.
 
 ## 🎨 Customization
 
