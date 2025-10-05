@@ -118,11 +118,8 @@ local myWord = {
 }
 ```
 
-### Modifying Game Difficulty
-Change the maximum tries in `main.lua`:
-```lua
-local tries = 6  -- Change this number
-```
+### Difficulty
+The game uses exactly 6 tries because there are 6 ASCII art stages for the hangman. Changing the number of tries requires adding/removing corresponding ASCII stages in `tui.lua` and updating logic accordingly. Keeping `tries = 6` is recommended.
 
 ## 📝 License
 
