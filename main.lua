@@ -4,22 +4,28 @@ local wordBank = require("wordBank")
 
 local tries = 6
 local current = 0
+local word = ""
 
-os.execute("cls")
-print(tui["start"])
-print()
-io.write([[
+while word == "" do
+    os.execute("cls")--for linux and mac change this to "clear"
+    print(tui["start"])
+    print()
+    io.write([[
 
-pls pick a catehories :
-1. movies
-2. fruits
-3. animals
+    pls pick a catehories :
+    1. movies
+    2. fruits
+    3. animals
 
-enter your chosse number >> ]])
-local choose = io.read() or ""
-os.execute("cls")
+    enter your chosse number >> ]])
+    local choose = io.read() or ""
+    os.execute("cls")
 
-local word = wordBank.choose(choose)
+    if choose == "1" or choose == "2" or choose == "3" then
+        word = wordBank.choose(choose)
+    end
+end
+
 local wordList = {}
 local lettersList = {}
 
@@ -27,15 +33,6 @@ for i = 1, #word do
     table.insert(wordList, string.sub(word, i, i))
 end
 
-local function allGuessed(wl, ll)
-    for i = 1, #wl do
-        local letter = string.lower(wl[i])
-        if letter ~= " " and not renderWord.inTable(ll, letter) then
-            return false
-        end
-    end
-    return true
-end
 
 while true do
     if current < tries or current == "" then
