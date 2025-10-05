@@ -6,6 +6,8 @@ local tries = 6
 local current = 0
 local word = ""
 
+
+-- note that i need this line for me because i use windows and linux at the same time and i need it to work on both
 local isWindows = package.config:sub(1,1) == "\\"
 local function clear()
 	if isWindows then
